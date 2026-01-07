@@ -22,7 +22,7 @@ func bookableDate(fl validator.FieldLevel) bool {
 	date, ok := fl.Field().Interface().(time.Time)
 	if ok {
 		// 验证逻辑：必须是今天或未来的日期
-		today := time.Now().Truncate(24 * time.Hour)  // Truncate
+		today := time.Now().Truncate(24 * time.Hour) // Truncate
 		return date.Equal(today) || date.After(today)
 	}
 	return false
